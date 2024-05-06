@@ -21,11 +21,11 @@ public class OrderRepository {
 
     public List<OrderResponse.SaveFormDTO> findStatusAndUserId(Integer sessionUserId) {
         String q = """
-                select c.id, c.user_id, c.product_id, c.buy_qty, c.status, p.name, p.price 
+                select c.id, c.user_id, c.product_id, c.buy_qty, p.name, p.price 
                 from cart_tb c
                 inner join product_tb p 
                 on c.product_id = p.id 
-                where c.status = ? and c.user_id = ?
+                where c.id = ? and c.user_id = ?
                 """;
 
         Query query = em.createNativeQuery(q);
@@ -41,16 +41,14 @@ public class OrderRepository {
             Integer userId = (Integer) row[1];
             Integer productId = (Integer) row[2];
             Integer buyQty = (Integer) row[3];
-            Boolean status = (Boolean) row[4];
-            String pName = (String) row[5];
-            Integer price = (Integer) row[6];
+            String pName = (String) row[4];
+            Integer price = (Integer) row[5];
 
             OrderResponse.SaveFormDTO listDTO = OrderResponse.SaveFormDTO.builder()
                     .cartId(cartId)
                     .userId(userId)
                     .productId(productId)
                     .buyQty(buyQty)
-                    .status(status)
                     .pName(pName)
                     .price(price)
                     .build();

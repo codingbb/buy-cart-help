@@ -16,19 +16,18 @@ public class OrderResponse {
         private Integer userId;
         private Integer productId;
         private Integer buyQty;
-        private Boolean status;
+//        private Boolean status;
         private String pName;
         private Integer price;
 
         private Integer sum;
 
         @Builder
-        public SaveFormDTO(Integer cartId, Integer userId, Integer productId, Integer buyQty, Boolean status, String pName, Integer price, Integer sum) {
+        public SaveFormDTO(Integer cartId, Integer userId, Integer productId, Integer buyQty, String pName, Integer price, Integer sum) {
             this.cartId = cartId;
             this.userId = userId;
             this.productId = productId;
             this.buyQty = buyQty;
-            this.status = status;
             this.pName = pName;
             this.price = price;
             this.sum = sum;

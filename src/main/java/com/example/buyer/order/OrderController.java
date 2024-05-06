@@ -1,5 +1,6 @@
 package com.example.buyer.order;
 
+import com.example.buyer.cart.CartRequest;
 import com.example.buyer.user.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

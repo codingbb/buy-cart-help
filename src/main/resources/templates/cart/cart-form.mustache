@@ -159,8 +159,7 @@
                 let checkedCart = {
                     cartId: cartId,
                     productId: productId,
-                    buyQty: buyQty,
-                    status: checkBox.checked ? true : false
+                    buyQty: buyQty
                 };
 
                 cartList.push(checkedCart);
@@ -175,7 +174,6 @@
             type: 'POST'
 
         }).done((res)=>{
-
             location.href = "/order-save-form"
 
         }).fail((res)=>{

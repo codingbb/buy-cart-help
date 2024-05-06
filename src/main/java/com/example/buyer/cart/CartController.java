@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Controller
@@ -18,7 +19,7 @@ public class CartController {
 
     //장바구니 수량 변경
     @PostMapping("/cart/update")
-    public @ResponseBody String update(@RequestBody List<CartRequest.UpdateDTO> requestDTOs) {
+    public @ResponseBody String update(@RequestBody List<CartRequest.UpdateDTO> requestDTOs, HttpServletRequest request) {
         System.out.println("장바구니 값 받나요? : " + requestDTOs);
         cartService.updateCart(requestDTOs);
 
